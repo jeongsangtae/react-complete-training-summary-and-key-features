@@ -1,5 +1,14 @@
+import Post from "./components/Post";
+
 function App() {
-  return <h1>Hello World!</h1>;
+  return (
+    <main>
+      <Post author="Jeong" body="sang tae" />
+      <Post author="Kim" body="hun sun" />
+      <Post author="Park" body="jeong su" />
+      <Post author="Kim" body="hyung jin" />
+    </main>
+  );
 }
 
 export default App;

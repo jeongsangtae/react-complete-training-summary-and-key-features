@@ -9,4 +9,6 @@ Currently, two official plugins are available:
 
 # React 요약 및 핵심 기능 복습
 
-1.
+1. 컴포넌트
+
+2.
