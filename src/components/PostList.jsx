@@ -6,45 +6,35 @@ import Modal from "../UI/Modal";
 import classes from "./PostList.module.css";
 
 const PostList = ({ isPosting, onStopPosting }) => {
-  const [enteredBody, setEnteredBody] = useState("");
-  const [enteredAuthor, setEnteredAuthor] = useState("");
+  const [posts, setPosts] = useState([]);
 
-  const bodyChangeHandler = (event) => {
-    setEnteredBody(event.target.value);
+  const addPostHandler = (postData) => {
+    setPosts((prevPosts) => {
+      return [postData, ...prevPosts];
+    });
   };
-
-  const authorChangeHandler = (event) => {
-    setEnteredAuthor(event.target.value);
-  };
-
-  // let modalContent;
-
-  // if (modalIsVisible) {
-  //   modalContent = (
-  //     <Modal onClose={hideModalHandler}>
-  //       <NewPost
-  //         onBodyChange={bodyChangeHandler}
-  //         onAuthorChange={authorChangeHandler}
-  //       />
-  //     </Modal>
-  //   );
-  // }
 
   return (
     <>
       {isPosting && (
         <Modal onClose={onStopPosting}>
-          <NewPost
-            onBodyChange={bodyChangeHandler}
-            onAuthorChange={authorChangeHandler}
-          />
+          <NewPost onClose={onStopPosting} onAddPost={addPostHandler} />
         </Modal>
       )}
 
-      <ul className={classes.posts}>
-        <Post author={enteredAuthor} body={enteredBody} />
-        <Post author="Kim" body="Hun" />
-      </ul>
+      {posts.length > 0 && (
+        <ul className={classes.posts}>
+          {posts.map((post) => {
+            return <Post key={post.id} author={post.author} body={post.body} />;
+          })}
+        </ul>
+      )}
+      {posts.length === 0 && (
+        <div style={{ textAlign: "center", color: "white" }}>
+          <h2>There are no posts yet</h2>
+          <p>Start adding some!</p>
+        </div>
+      )}
     </>
   );
 };
