@@ -18,7 +18,6 @@ function NewPost({ onClose, onAddPost }) {
     event.preventDefault();
 
     const postData = {
-      id: Math.random(),
       body: enteredBody,
       author: enteredAuthor,
     };
