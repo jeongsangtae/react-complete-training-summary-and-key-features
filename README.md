@@ -11,4 +11,32 @@ Currently, two official plugins are available:
 
 1. 컴포넌트
 
-2.
+2. State
+
+3. 이벤트 리스너
+
+4. 상태 끌어 올리기
+
+5. children 프로퍼티
+
+6. 조건부 렌더링
+
+7. form
+
+8. 백엔드 추가
+
+9. POST HTTP 요청 처리
+
+10. useEffect
+
+11. 라우팅
+
+12. 레이아웃 라우트
+
+13. 중첩 라우트
+
+14. loader 함수
+
+15. action 함수
+
+16. 동적 라우트
